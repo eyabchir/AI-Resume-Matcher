@@ -13,7 +13,7 @@ This project is an AI-based tool that matches job descriptions with resumes usin
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/<your-username>/AI-Resume-Matcher.git
+    git clone https://github.com/eyabchir/AI-Resume-Matcher.git
     ```
 
 2. Install dependencies:
