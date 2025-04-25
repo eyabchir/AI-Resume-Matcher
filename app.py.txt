@@ -1,0 +1,44 @@
+import streamlit as st
+from sentence_transformers import SentenceTransformer, util
+import PyPDF2
+import tempfile
+
+# Function to extract text from uploaded PDF
+def extract_text_from_pdf(uploaded_file):
+    reader = PyPDF2.PdfReader(uploaded_file)
+    text = ""
+    for page in reader.pages:
+        text += page.extract_text()
+    return text
+
+# Streamlit App Title
+st.title("📄 Resume Matcher Using PDF")
+
+# Upload Job Description PDF
+job_pdf = st.file_uploader("Upload Job Description (PDF)", type="pdf")
+
+# Upload Resume PDF
+resume_pdf = st.file_uploader("Upload Resume (PDF)", type="pdf")
+
+# Button to match
+if st.button("Match"):
+
+    if job_pdf is None or resume_pdf is None:
+        st.error("Please upload both PDF files.")
+    else:
+        # Extract text from PDFs
+        job_text = extract_text_from_pdf(job_pdf)
+        resume_text = extract_text_from_pdf(resume_pdf)
+
+        # Load the model
+        model = SentenceTransformer('all-MiniLM-L6-v2')
+
+        # Encode texts
+        job_embedding = model.encode(job_text, convert_to_tensor=True)
+        resume_embedding = model.encode(resume_text, convert_to_tensor=True)
+
+        # Calculate similarity
+        similarity = util.pytorch_cos_sim(job_embedding, resume_embedding)
+
+        # Display result
+        st.success(f"✅ Similarity Score: {similarity.item():.2f}")
