@@ -1,0 +1,198 @@
+/* App Background */
+.stApp {
+    background: linear-gradient(135deg, #fdf6fd 0%, #e8f4fa 60%, #f8faff 100%) !important;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Main Content Card Look - REMOVED .stMarkdown */
+.stContainer, .stFileUploader, .stTextInput, .stTextArea, .stSelectbox, .stButton>button {
+    border-radius: 22px !important;
+    box-shadow: 0 2px 14px 0 rgba(167, 161, 255, 0.12), 0 1.5px 4px 0 rgba(180, 220, 255, 0.09) !important;
+    background: rgba(255,255,255,0.92) !important;
+    transition: box-shadow 0.2s;
+}
+
+.stMarkdown {
+    background: none !important;
+    color: #2B2557 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    font-size: 1.15rem !important;
+    border: none !important;
+}
+
+/* Header/Slogan Text */
+h1, .stMarkdown h1 {
+    color: #0a0563 !important;
+    font-weight: 900 !important;
+    text-align: left !important;
+    margin-bottom: 0.5em;
+    margin-top: 0.4em;
+}
+
+/* Subheader */
+h2, .stMarkdown h2, .stSubheader {
+    color: #FD5D93 !important;
+    font-weight: 700 !important;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #f8e0fc 0%, #baf5fc 100%) !important;
+    color: #3211b6 !important;
+}
+
+
+/* Sidebar text */
+.stSidebar .css-1d391kg, .stSidebar label, .stSidebar select, .stSidebar span {
+    color: #2B2557 !important;
+    font-size: 1.07rem !important;
+    font-weight: 600 !important;
+}
+
+/* Buttons */
+.stButton>button {
+    background: linear-gradient(90deg, #6C63FF, #FD5D93) !important;
+    color: #fff !important;
+    font-weight: bold;
+    border-radius: 18px !important;
+    padding: 12px 24px !important;
+    font-size: 1.1rem !important;
+    transition: all 0.25s cubic-bezier(.4,2.5,.5,.7);
+    box-shadow: 0 6px 14px rgba(253,93,147,0.08);
+}
+.stButton>button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 24px rgba(253,93,147,0.11);
+    filter: brightness(1.09);
+}
+
+/* File uploader */
+[data-testid="stFileUploader"] {
+    border: 2px dashed #f78eb1 !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    background-color: rgba(252, 250, 255, 0.88) !important;
+    transition: background-color 0.3s;
+}
+[data-testid="stFileUploader"]:hover {
+    background-color: #fdf1fa !important;
+}
+
+/* ==== PROGRESS BAR SIMPLE MINIMAL ==== */
+.stProgress > div > div {
+    border-radius: 12px !important;
+    min-height: 8px !important;
+    background: #7d5fff !important; /* Simple, single color */
+    box-shadow: none !important;
+}
+
+/* Remove secondary bar/layer below */
+.stProgress > div {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+
+/* Card hover (for fun) */
+.stContainer:hover {
+    box-shadow: 0 10px 32px 0 rgba(253,93,147,0.08), 0 2px 4px 0 rgba(180, 220, 255, 0.09) !important;
+}
+
+label {
+    font-weight: bold !important;
+    font-size: 1.09rem;
+    color: #2000ab !important;
+}
+
+/* Leave background: none for input fields (as before) */
+.stTextInput, .stTextArea, .stSelectbox {
+    background: none !important;
+    border: none !important;
+}
+
+/* Extra: Emoji fun for h1 */
+h1::before {
+    content: "🤖 ";
+    font-size: 2.3rem;
+    vertical-align: middle;
+    margin-right: 0.18em;
+}
+
+/* Make uploaded file name readable in the file uploader */
+[data-testid="stFileUploader"] .uploadedFileName,
+[data-testid="stFileUploader"] .uploadedFileName span,
+[data-testid="stFileUploader"] [data-testid="stFileUploaderFileName"] {
+    color: #1a1446 !important;   /* Deep navy or adjust as you like */
+    font-weight: 600 !important;
+    background: none !important;
+}
+
+/* Streamlit success/warning/error info blocks (for match results) */
+.stAlert-success,
+[data-testid="stAlertContentSuccess"] {
+    background: #b2f2d7 !important;
+    color: #123d29 !important;
+    font-weight: 700 !important;
+    border-left: 6px solid #36cc81 !important;
+}
+
+.stAlert-warning,
+[data-testid="stAlertContentWarning"] {
+    background: #fff8c4 !important;
+    color: #665900 !important;
+    font-weight: 700 !important;
+    border-left: 6px solid #ffe066 !important;
+}
+
+.stAlert-error,
+[data-testid="stAlertContentError"] {
+    background: #ffe2e2 !important;
+    color: #9b2226 !important;
+    font-weight: 700 !important;
+    border-left: 6px solid #ff5a5f !important;
+}
+
+/* ---- HIGH CONTRAST FIX FOR ALL IMPORTANT TEXT ---- */
+h1, h2, h3, h4,
+.stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4,
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4,
+.stSubheader,
+.st-emotion-cache-gi0tri, .st-emotion-cache-1wda3go {
+    color: #1a1446 !important;   /* Deep navy */
+    font-weight: 900 !important;
+    text-shadow: none !important;
+    letter-spacing: 0.01em;
+}
+
+.stMarkdown, [data-testid="stMarkdownContainer"] {
+    color: #18104c !important;
+    font-size: 1.12rem !important;
+    font-weight: 500;
+}
+
+strong, b {
+    color: #18104c !important;
+    font-weight: 800 !important;
+}
+
+.stCaption, .caption, 
+[data-testid="stMarkdownContainer"] .caption,
+[data-testid="stMarkdownContainer"] span,
+[data-testid="stMarkdownContainer"] p {
+    color: #1a1446 !important;
+    font-size: 1.06rem !important;
+    font-weight: 500 !important;
+}
+/* Remove margin above the progress bar in requirement breakdown */
+div[data-testid="stProgressBar"] {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+}
